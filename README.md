@@ -22,7 +22,7 @@ import(
 )
 
 func main() {
-	client := New("client_id", "client_secret", "purchaseToken")
+	client := onestore.New("client_id", "client_secret", "purchaseToken")
 
 	ctx := context.Background()
 	resp, err := client.Verify(ctx, "package", "productID", "purchaseToken")
