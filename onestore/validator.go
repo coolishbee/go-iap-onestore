@@ -36,13 +36,31 @@ type OAuthResp struct {
 }
 
 type IAPResponse struct {
-	ConsumptionState int    `json:"consumptionState"`
+	// ConsumptionState: Consumption status of purchased products:
+	// 0. non-consumption 1. consumption
+	ConsumptionState int `json:"consumptionState"`
+
+	// DeveloperPayload: Payment unique identifier provided by the developer.
 	DeveloperPayload string `json:"developerPayload"`
-	PurchaseState    int    `json:"purchaseState"`
-	PurchaseTime     int64  `json:"purchaseTime"`
-	PurchaseId       string `json:"purchaseId"`
-	AcknowledgeState int    `json:"acknowledgeState"`
-	Quantity         int    `json:"quantity"`
+
+	// PurchaseState: The purchase state of the order. Possible values are:
+	// 0. Purchased 1. Canceled
+	PurchaseState int `json:"purchaseState"`
+
+	// PurchaseTime: The time the product was purchased, in
+	// milliseconds since the epoch (Jan 1, 1970).
+	PurchaseTime int64 `json:"purchaseTime"`
+
+	// PurchaseId: The purchase token generated to identify this purchase.
+	PurchaseId string `json:"purchaseId"`
+
+	// AcknowledgeState: The acknowledgement state of the inapp product.
+	// Possible values are: 0. Yet to be acknowledged 1. Acknowledged
+	AcknowledgeState int `json:"acknowledgeState"`
+
+	// Quantity: The quantity associated with the purchase of the inapp
+	// product.
+	Quantity int `json:"quantity"`
 }
 
 type IAPResponseError struct {
